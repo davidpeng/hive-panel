@@ -1,0 +1,32 @@
+<ol class="breadcrumb">
+	<li><a href="#/">Home</a></li>
+	<li><a href="#/applications/{{applicationName}}">{{applicationName}}</a></li>
+	<li><a href="#/applications/{{applicationName}}/users/{{username}}">{{username}}</a></li>
+	<li>User Settings</li>
+</ol>
+<div class="well">
+	<form novalidate name="form" ng-submit="save()">
+		<fieldset ng-disabled="user === null">
+			<div class="form-group" show-errors>
+				<label for="username">Username</label>
+				<input type="text" class="form-control" id="username" name="username" ng-model="user.username" required ng-pattern="/^([A-Za-z0-9\-_']|\.(?!\.)){1,50}$/" maxlength="50"/>
+				<p class="help-block">Usernames can contain letters, digits, dashes, underscores, apostrophes, and periods. They can't contain two consecutive periods together.</p>
+				<p class="help-block" ng-show="form.username.$dirty && form.username.$error.required">Username is required.</p>
+				<p class="help-block" ng-show="form.username.$error.pattern">Invalid username.</p>
+				<p class="help-block" ng-show="form.username.$error.taken">That username is already taken.</p>
+			</div>
+			<div class="form-group">
+				<label>Password</label>
+				<a href="#/applications/{{applicationName}}/users/{{username}}/change-password" class="form-control btn btn-primary">Change Password</a>
+			</div>
+			<div class="form-group" show-errors>
+				<label for="email">E-mail</label>
+				<input type="email" class="form-control" id="email" name="email" ng-model="user.email" required maxlength="50"/>
+				<p class="help-block" ng-show="form.email.$dirty && form.email.$error.required">E-mail is required.</p>
+				<p class="help-block" ng-show="form.email.$error.email">Invalid e-mail.</p>
+			</div>
+			<button type="submit" class="btn btn-primary">Save</button>
+		</fieldset>
+	</form>
+</div>
+<a href="#/applications/{{applicationName}}/users/{{username}}/remove" class="btn btn-danger">Remove this User</a>

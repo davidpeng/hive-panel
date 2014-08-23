@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="hivePanelApp">
+	<head>
+		<link rel="stylesheet" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="css/loading-bar.min.css"/>
+		<link rel="stylesheet" href="css/style.css"/>
+		<script src="js/lib/angular.min.js"></script>
+		<script src="js/lib/angular-route.min.js"></script>
+		<script src="js/lib/ui-bootstrap-tpls-0.11.0.min.js"></script>
+		<script src="js/lib/loading-bar.min.js"></script>
+		<script src="js/lib/showErrors.min.js"></script>
+		<script src="js/lib/match.js"></script>
+		<script src="js/lib/hive-api.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/alert.js"></script>
+		<script src="js/hive.js"></script>
+		<script src="js/controller.js"></script>
+		<title>Hive</title>
+	</head>
+	<body ng-controller="MainController">
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+				<ul class="nav navbar-nav">
+					<li><a class="navbar-brand" href="/"><img class="hive-logo" src="images/hive-logo.png"/></a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><button type="button" class="btn btn-link navbar-btn" ng-show="login !== null" ng-click="logOut()">Log out</button></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container">
+			<alert ng-repeat="message in alert.messages" type="{{message.type}}" close="message.close()">{{message.text}}</alert>
+			<div ng-view></div>
+		</div>
+	</body>
+</html>

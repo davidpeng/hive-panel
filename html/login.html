@@ -1,0 +1,23 @@
+<div class="well">
+	<form novalidate name="form" ng-submit="logIn()">
+		<fieldset>
+			<legend>Login</legend>
+			<div class="form-group" show-errors>
+				<label for="username">Username</label>
+				<input type="text" class="form-control" id="username" name="username" ng-model="username" required/>
+				<p class="help-block" ng-show="form.username.$dirty && form.username.$error.required">Username is required.</p>
+				<p class="help-block" ng-show="form.username.$error.unknown">There's no user with that name.</p>
+				<p class="help-block" ng-show="form.username.$error.unconfirmed">You need to confirm this account via the confirmation e-mail you were sent.</p>
+			</div>
+			<div class="form-group" show-errors>
+				<label for="password">Password</label>
+				<input type="password" class="form-control" id="password" name="password" ng-model="password" required/>
+				<p class="help-block" ng-show="form.password.$dirty && form.password.$error.required">Password is required.</p>
+				<p class="help-block" ng-show="form.password.$error.wrong">Incorrect password.</p>
+			</div>
+			<button type="submit" class="btn btn-primary">Log in</button>
+		</fieldset>
+	</form>
+</div>
+<p><a href="#/forgot-password">Forgot your password?</a></p>
+<p><a href="#/sign-up">Need an account?</a></p>

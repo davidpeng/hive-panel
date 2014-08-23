@@ -1,0 +1,31 @@
+<ol class="breadcrumb">
+	<li><a href="#/">Home</a></li>
+	<li><a href="#/applications/{{applicationName}}">{{applicationName}}</a></li>
+	<li><a href="#/applications/{{applicationName}}/users/{{username}}">{{username}}</a></li>
+	<li>{{key}}</li>
+</ol>
+<div class="well">
+	<form novalidate name="form" ng-submit="save()">
+		<fieldset ng-disabled="data === null">
+            <div class="form-group" show-errors>
+                <label for="key">Key</label>
+                <input type="text" class="form-control" id="key" name="key" ng-model="data.key" required maxlength="250"/>
+                <p class="help-block" ng-show="form.key.$dirty && form.key.$error.required">Key is required.</p>
+                <p class="help-block" ng-show="form.key.$error.pattern">Invalid key.</p>
+                <p class="help-block" ng-show="form.key.$error.taken">That key is already being used.</p>
+            </div>
+			<div class="form-group">
+				<label for="value">Value</label>
+				<textarea class="form-control" id="value" ng-model="data.value" rows="4"></textarea>
+			</div>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" ng-model="data.publicReadable"/>
+					Publicly Readable
+				</label>		
+			</div>
+			<button type="submit" class="btn btn-primary">Save</button>
+		</fieldset>
+	</form>
+</div>
+<a href="#/applications/{{applicationName}}/users/{{username}}/data/{{key}}/remove" class="btn btn-danger">Remove this Data</a>

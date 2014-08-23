@@ -1,0 +1,12 @@
+.nav, .pagination, .carousel, .panel-title a {
+	cursor: pointer;
+}
+
+.hive-logo {
+	margin-top: -5px;
+}
+
+.loading {
+	background: url(../images/loading.gif) center no-repeat;
+	height: 80px;
+}

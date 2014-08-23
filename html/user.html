@@ -1,0 +1,32 @@
+<ol class="breadcrumb">
+	<li><a href="#/">Home</a></li>
+	<li><a href="#/applications/{{applicationName}}">{{applicationName}}</a></li>
+	<li>{{username}}</li>
+</ol>
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h2 class="panel-title">Data</h2>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Key</th>
+				<th>Value</th>
+				<th>Permissions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="data in allData">
+				<td><a href="#/applications/{{applicationName}}/users/{{username}}/data/{{data.key}}">{{data.key}}</a></td>
+				<td>{{data.value}}</td>
+				<td>{{data.permissionText}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="loading" ng-show="allData === null"></div>
+	<div class="panel-body bg-info text-center" ng-show="allData.length === 0">There's no data yet.</div>
+	<div class="panel-footer">
+		<a href="#/applications/{{applicationName}}/users/{{username}}/add-data" class="btn btn-success">Add Data</a>
+	</div>
+</div>
+<a href="#/applications/{{applicationName}}/users/{{username}}/update" class="btn btn-info">User Settings</a>

@@ -1,0 +1,11 @@
+<ol class="breadcrumb">
+	<li><a href="#/">Home</a></li>
+	<li><a href="#/applications/{{applicationName}}">{{applicationName}}</a></li>
+	<li><a href="#/applications/{{applicationName}}/users/{{username}}">{{username}}</a></li>
+	<li><a href="#/applications/{{applicationName}}/users/{{username}}/update">User Settings</a></li>
+	<li>Remove User</li>
+</ol>
+<div class="well">
+	<p>Are you sure you want to remove user <b>{{username}}</b>?</p>
+	<button type="button" class="btn btn-danger" ng-click="remove()">I'm Sure</button>
+</div>

@@ -1,0 +1,26 @@
+<ol class="breadcrumb">
+	<li>Home</li>
+</ol>
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h2 class="panel-title">Applications</h2>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="application in applications">
+				<td><a href="#/applications/{{application.name}}">{{application.name}}</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="loading" ng-show="applications === null"></div>
+	<div class="panel-body bg-info text-center" ng-show="applications.length === 0">You haven't added any applications yet.</div>
+	<div class="panel-footer">
+		<a href="#/add-application" class="btn btn-success">Add Application</a>
+	</div>
+</div>
+<a href="#/administrator" class="btn btn-info">Account Settings</a>

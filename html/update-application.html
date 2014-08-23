@@ -1,0 +1,21 @@
+<ol class="breadcrumb">
+	<li><a href="#/">Home</a></li>
+	<li><a href="#/applications/{{applicationName}}">{{applicationName}}</a></li>
+	<li>Application Settings</li>
+</ol>
+<div class="well">
+	<form novalidate name="form" ng-submit="save()">
+		<fieldset ng-disabled="application === null">
+			<div class="form-group" show-errors>
+				<label for="name">Application Name</label>
+				<input type="text" class="form-control" id="name" name="name" ng-model="application.name" required ng-pattern="/^([A-Za-z0-9\-_']|\.(?!\.)){1,50}$/" maxlength="50"/>
+				<p class="help-block">Application names can contain letters, digits, dashes, underscores, apostrophes, and periods. They can't contain two consecutive periods together.</p>
+				<p class="help-block" ng-show="form.name.$dirty && form.name.$error.required">Application name is required.</p>
+				<p class="help-block" ng-show="form.name.$error.pattern">Invalid application name.</p>
+				<p class="help-block" ng-show="form.name.$error.taken">That application name is already taken.</p>
+			</div>
+			<button type="submit" class="btn btn-primary">Save</button>
+		</fieldset>
+	</form>
+</div>
+<a href="#/applications/{{applicationName}}/remove" class="btn btn-danger">Remove this Application</a>
