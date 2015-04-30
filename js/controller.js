@@ -175,8 +175,7 @@ angular
 			hive.api()
 				.removeAdministrator()
 				.success(function (data) {
-					$scope.login = null;
-					$location.path('/');
+					$scope.logOut();
 				});
 		};
 	}])
